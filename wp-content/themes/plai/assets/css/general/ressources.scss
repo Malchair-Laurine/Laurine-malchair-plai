@@ -1,0 +1,386 @@
+/*
+BACKGROUND
+*/
+$main-bg: #FFF3EA;
+
+/*
+COLORS
+*/
+$light-pink: #F7C8CC;
+$dark-pink: #FF9AA2;
+$light-orange: #FFDABC;
+$dark-orange: #FFB77D;
+
+/*
+SIZES
+*/
+$title-size: 4rem;
+$text-size: 1.25rem;
+$card-title-size: 2rem;
+$card-text-size: 1.5rem;
+
+/*
+FONTS
+*/
+$font-poppins: 'Poppins', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+$font-staatliches: 'Staatliches', 'Impact', 'Arial Black', sans-serif;
+
+
+.ressources-container {
+  background-color: $main-bg;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 80px 24px;
+  font-family: $font-poppins;
+}
+
+.ressources-header{
+  text-align: center;
+  margin-bottom: 60px;
+
+  &__title{
+    font-family: $font-staatliches;
+    font-size: $title-size;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+  }
+
+  &__description{
+    font-size: $text-size;
+    font-weight: 500;
+  }
+}
+
+
+.ressources-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 32px;
+}
+
+.ressources-card {
+  background-color: $light-pink;
+  border-radius: 14px;
+
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  text-decoration: none;
+  color: #111;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  min-height: 320px;
+  gap: 28px;
+  padding: 36px 28px;
+  justify-content: space-between;
+
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.10);
+  }
+
+  &__title {
+    font-family: $font-staatliches;
+    font-size: clamp(1.6rem, 2vw, $card-title-size);
+    text-transform: uppercase;
+    line-height: 1.2;
+    margin: 0;
+    padding-bottom: 14px;
+    border-bottom: 2px solid rgba(255, 122, 122, 0.35);
+
+  }
+
+  &__description {
+    font-size: clamp(1rem, 1.2vw, $card-text-size);
+    line-height: 1.6;
+    margin: 0;
+    color: #222;
+    text-align: center;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 12px;
+
+  }
+}
+
+.ressources {
+  &__nav {
+    margin: 2rem 0;
+    padding: 0;
+  }
+
+  &__filter-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  &__filter-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 18px;
+    border-radius: 999px;
+
+    background-color: $light-orange;
+    text-decoration: none;
+    font-family: $font-staatliches;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    color: #000000;
+
+    &:hover {
+      background-color: $dark-orange;
+      color: #ffffff;
+      transform: translateY(-2px);
+    }
+  }
+
+  &__filter-link--active {
+    background-color: #f1989c;
+    color: #ffffff;
+    box-shadow: 0 4px 6px rgba(241, 152, 156, 0.2);
+  }
+}
+
+/*
+UNE RESSOURCE
+*/
+
+.ressource {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 60px 20px;
+  font-family: $font-poppins;
+
+  &__header {
+    text-align: center;
+    margin-bottom: 60px;
+
+    .ressource__title {
+      font-family: $font-staatliches;
+      font-size: $title-size;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      letter-spacing: 0.5px;
+    }
+
+    .ressource__slogan {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 30px;
+    }
+
+    .ressource__description {
+      font-size: $text-size;
+      line-height: 1.6;
+      max-width: 680px;
+      margin: 0 auto 35px auto;
+    }
+  }
+
+  .functionality-section,
+  .pedagogical-section {
+    margin-bottom: 50px;
+
+    &__title {
+      font-family: $font-staatliches;
+      font-size: 3rem;
+      text-transform: uppercase;
+      font-weight: 900;
+      margin-bottom: 25px;
+      letter-spacing: -0.5px;
+    }
+  }
+
+  .functionality-section {
+    &__list {
+      list-style-type: disc;
+      padding-left: 20px;
+
+      li {
+        font-size: $text-size;
+        line-height: 1.6;
+        margin-bottom: 14px;
+        padding-left: 5px;
+      }
+    }
+  }
+
+  .pedagogical-section {
+    &__text {
+      font-size: $text-size;
+      line-height: 1.6;
+    }
+  }
+
+  .btn-primary {
+    margin-top: 20px;
+    display: inline-block;
+    background-color: $dark-pink;
+    color: #000000;
+    text-transform: uppercase;
+    font-family: $font-staatliches;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+    padding: 14px 28px;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+
+    &:hover{
+      opacity: 0.9;
+      transform: translateY(-1px);
+    }
+  }
+
+  .all-ressources{
+    background-color: $light-orange;
+    border-radius: 10px;
+    padding: 60px 40px;
+    text-align: center;
+    margin-top: 70px;
+
+    &__title{
+      font-family: $font-staatliches;
+      font-size: $title-size;
+      text-transform: uppercase;
+      max-width: 550px;
+      margin: 0 auto 35px auto;
+      line-height: 1.2;
+      letter-spacing: -0.5px;
+    }
+  }
+}
+
+/*RESPONSIVE*/
+
+@media (max-width: 768px) {
+
+  /* ---- Liste ressources ---- */
+  .ressources-container {
+    margin-top: 50px;
+    padding: 40px 15px;
+  }
+
+  .ressources-header {
+    margin-bottom: 30px;
+
+    &__title {
+      font-size: clamp(2rem, 8vw, 3rem);
+    }
+
+    &__description {
+      font-size: 1.1rem;
+    }
+  }
+
+  .ressources-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .ressources-card {
+    min-height: auto;
+    padding: 25px 20px;
+    gap: 20px;
+
+    &__title {
+      font-size: 1.6rem;
+    }
+
+    &__description {
+      font-size: 1.1rem;
+    }
+  }
+
+  .ressources {
+    &__filter-list {
+      gap: 8px;
+    }
+
+    &__filter-link {
+      padding: 8px 14px;
+      font-size: 0.9rem;
+    }
+  }
+
+  /* ---- Une ressource ---- */
+  .ressource {
+    margin-top: 50px;
+    padding: 40px 15px;
+
+    &__header {
+      margin-bottom: 40px;
+
+      .ressource__title {
+        font-size: clamp(2rem, 8vw, 3rem);
+      }
+
+      .ressource__slogan {
+        font-size: 1.1rem;
+      }
+
+      .ressource__description {
+        font-size: 1.05rem;
+      }
+    }
+
+    .functionality-section,
+    .pedagogical-section {
+      margin-bottom: 35px;
+
+      &__title {
+        font-size: clamp(1.8rem, 7vw, 2.5rem);
+        margin-bottom: 15px;
+      }
+    }
+
+    .functionality-section {
+      &__list li {
+        font-size: 1.05rem;
+        margin-bottom: 10px;
+      }
+    }
+
+    .pedagogical-section {
+      &__text {
+        font-size: 1.05rem;
+      }
+    }
+
+    .all-ressources {
+      padding: 35px 20px;
+      margin-top: 40px;
+
+      &__title {
+        font-size: clamp(1.8rem, 7vw, 2.8rem);
+        margin-bottom: 20px;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+
+  .ressources-card {
+    &__title       { font-size: 1.4rem; }
+    &__description { font-size: 1rem; }
+  }
+
+  .ressource {
+    &__header .ressource__title { font-size: 2rem; }
+
+    .functionality-section__title,
+    .pedagogical-section__title  { font-size: 1.8rem; }
+
+    .all-ressources__title { font-size: 1.8rem; }
+  }
+}

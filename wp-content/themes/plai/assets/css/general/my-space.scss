@@ -1,0 +1,476 @@
+/*
+BACKGROUND
+*/
+$main-bg: #FFF3EA;
+
+/*
+COLORS
+*/
+$light-pink: #F7C8CC;
+$dark-pink: #FF9AA2;
+$light-orange: #FFDABC;
+$dark-orange: #FFB77D;
+
+/*
+SIZES
+*/
+$title_size: 4rem;
+$text-size: 1.25rem;
+$card-title-size: 2.5rem;
+$card-text-size: 1.125rem;
+
+/*
+FONTS
+*/
+$font-poppins: 'Poppins', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+$font-staatliches: 'Staatliches', 'Impact', 'Arial Black', sans-serif;
+
+.my-space-page {
+  font-family: $font-poppins;
+  background-color: $main-bg;
+  overflow-x: hidden;
+
+  section,
+  header {
+    width: min(1200px, calc(100% - 4rem));
+    margin-inline: auto;
+  }
+
+  &__header {
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    text-align: right;
+  }
+
+  &__title {
+    font-family: $font-staatliches;
+    font-size: $title_size;
+    text-transform: uppercase;
+    line-height: 0.9;
+    margin: 0;
+  }
+
+  &__span {
+    display: block;
+    font-family: $font-staatliches;
+    font-size: $title-size;
+    color: $dark-pink;
+    line-height: 0.9;
+  }
+
+  &__description {
+    max-width: 350px;
+    margin-top: 1.5rem;
+    font-size: $text-size;
+    line-height: 1.6;
+  }
+}
+
+.referent-section {
+  width: 100%;
+  max-width: none;
+  background-color: $light-pink;
+  padding: 7rem clamp(2rem, 5vw, 6rem);
+  display: flex;
+  justify-content: center;
+
+  &__body {
+    flex: 1;
+    max-width: 650px;
+  }
+
+  &__title {
+    font-family: $font-staatliches;
+    font-size: $title-size;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+  }
+
+  &__description {
+    line-height: 1.8;
+    max-width: 550px;
+  }
+}
+
+.referent-card__contact {
+  width: 320px;
+  min-height: 230px;
+  background-color: $dark-pink;
+  border-radius: 10px;
+  padding: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-left: 5rem;
+  font-weight: 500;
+  line-height: 1.8;
+}
+
+.process-section {
+  padding: 8rem 0;
+
+  &__title {
+    font-family: $font-staatliches;
+    font-size: $title-size;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 7rem;
+  }
+
+  &__grid {
+    display: flex;
+    gap: 8rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    &::-webkit-scrollbar{
+      display: none;
+    }
+  }
+}
+
+.card-step {
+  position: relative;
+  background-color: $light-orange;
+  border: 2px solid $dark-orange;
+  border-radius: 10px;
+
+  padding: 4rem 2.5rem;
+  min-height: 230px;
+
+  flex: 0 0 320px;
+  scroll-snap-align: center;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+
+  &__number {
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 58px;
+    height: 58px;
+
+    border-radius: 50%;
+    background-color: $dark-orange;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: $font-staatliches;
+    font-size: $card-text-size;
+  }
+
+  &__title {
+    font-family: $font-staatliches;
+    font-size: $card-title-size;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+  }
+
+  &__text {
+    line-height: 1.7;
+    font-size: $card-text-size;
+  }
+
+  &::after, &::before {
+    position: absolute;
+    pointer-events: none;
+    top: 50%;
+  }
+
+  &::after {
+    content: "";
+    border-top: 3px dashed #333;
+    width: 8rem;
+    right: -8rem;
+  }
+
+
+  &:last-child::after{
+      display: none;
+  }
+}
+
+.skills-section {
+  padding-bottom: 8rem;
+
+  &__title {
+    font-family: $font-staatliches;
+    font-size: $title-size;
+    text-transform: uppercase;
+    margin-bottom: 4rem;
+  }
+
+  &__grid {
+    display: flex;
+    gap: 2rem;
+    overflow-x: auto;
+    padding-bottom: 1rem;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.card-skill {
+  flex: 0 0 320px;
+  min-width: 320px;
+  background-color: $light-pink;
+  border-radius: 10px;
+  padding: 2rem;
+  scroll-snap-align: start;
+
+  &__title {
+    font-family: $font-staatliches;
+    font-size: $card-title-size;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+
+  &__text {
+    font-size: $card-text-size;
+    line-height: 1.7;
+  }
+}
+
+.banner-section {
+  background-color: $light-orange;
+  border-radius: 10px;
+  padding: 5rem 3rem;
+  text-align: center;
+  margin-bottom: 6rem;
+
+  &__title {
+    font-family: $font-staatliches;
+    font-size: $title-size;
+    text-transform: uppercase;
+    max-width: 700px;
+    margin-inline: auto;
+    margin-bottom: 2rem;
+  }
+
+  &__text {
+    max-width: 700px;
+    margin-inline: auto;
+    line-height: 1.8;
+    margin-bottom: 3rem;
+  }
+
+  &__button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 2.5rem;
+    background-color: $dark-pink;
+    border-radius: 10px;
+    text-decoration: none;
+    color: black;
+    font-family: $font-staatliches;
+    transition: 0.3s ease;
+
+    &:hover {
+      transform: translateY(-3px);
+    }
+  }
+}
+
+/*RESPONSIVE*/
+
+/* =============================================
+   TABLETTE — max 1024px
+   ============================================= */
+
+@media (max-width: 1024px) {
+
+  .referent-section {
+    padding: 5rem 2rem;
+    flex-wrap: wrap;
+    gap: 3rem;
+
+    &__title { font-size: 3rem; }
+  }
+
+  .referent-card__contact {
+    width: 100%;
+    margin-left: 0;
+    min-height: auto;
+    padding: 2rem;
+  }
+
+  .process-section {
+    padding: 6rem 0;
+    &__grid { gap: 5rem; }
+  }
+}
+
+
+/* =============================================
+   MOBILE — max 768px
+   ============================================= */
+
+@media (max-width: 768px) {
+
+  /* ---- Header ---- */
+  .my-space-page {
+
+    section,
+    header {
+      width: min(1200px, calc(100% - 2rem));
+    }
+
+    &__header {
+      min-height: 40vh;
+      align-items: flex-start;
+      text-align: left;
+    }
+
+    &__title {
+      font-size: clamp(2.5rem, 9vw, 3.5rem);
+    }
+
+    &__span {
+      font-size: clamp(2.5rem, 9vw, 3.5rem);
+    }
+
+    &__description {
+      max-width: 100%;
+      font-size: 1.1rem;
+    }
+  }
+
+  /* ---- Referent ---- */
+  .referent-section {
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+    padding: 4rem 1.5rem;
+
+    &__body {
+      max-width: 100%;
+    }
+
+    &__title {
+      font-size: clamp(2rem, 8vw, 3rem);
+      margin-bottom: 1rem;
+    }
+
+    &__description {
+      font-size: 1rem;
+    }
+  }
+
+  .referent-card__contact {
+    width: 100%;
+    box-sizing: border-box;
+    margin-left: 0;
+  }
+
+  /* ---- Process ---- */
+  .process-section {
+    padding: 4rem 0;
+
+    &__title {
+      font-size: clamp(2rem, 8vw, 3rem);
+      margin-bottom: 4rem;
+    }
+
+    &__grid {
+      gap: 4rem;
+      padding: 2rem 1.5rem;
+    }
+  }
+
+  .card-step {
+    flex: 0 0 260px;
+    padding: 3rem 1.5rem;
+
+    &__title { font-size: 2rem; }
+    &__text  { font-size: 1rem; }
+
+    &::after {
+      width: 4rem;
+      right: -4rem;
+    }
+  }
+
+  /* ---- Skills ---- */
+  .skills-section {
+    padding-bottom: 5rem;
+
+    &__title {
+      font-size: clamp(2rem, 8vw, 3rem);
+      margin-bottom: 2rem;
+    }
+
+    &__grid {
+      gap: 1.5rem;
+    }
+  }
+
+  .card-skill {
+    flex: 0 0 250px;
+    min-width: 250px;
+    padding: 1.5rem;
+
+    &__title { font-size: 2rem; }
+    &__text  { font-size: 1rem; }
+  }
+
+  /* ---- Banner ---- */
+  .banner-section {
+    padding: 3rem 1.5rem;
+    margin-bottom: 3rem;
+    border-radius: 8px;
+
+    &__title {
+      font-size: clamp(2rem, 8vw, 3rem);
+      margin-bottom: 1.5rem;
+    }
+
+    &__text {
+      font-size: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    &__button {
+      padding: 0.8rem 2rem;
+      font-size: 1rem;
+    }
+  }
+}
+
+
+/* =============================================
+   PETIT MOBILE — max 480px
+   ============================================= */
+
+@media (max-width: 480px) {
+
+  .my-space-page {
+    &__title,
+    &__span { font-size: clamp(2rem, 10vw, 2.8rem); }
+  }
+
+  .referent-section__title,
+  .process-section__title,
+  .skills-section__title,
+  .banner-section__title { font-size: 2rem; }
+
+  .card-step  { flex: 0 0 230px; }
+  .card-skill { flex: 0 0 220px; min-width: 220px; }
+}

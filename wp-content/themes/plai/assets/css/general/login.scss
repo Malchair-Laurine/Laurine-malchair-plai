@@ -1,0 +1,311 @@
+/*
+BACKGROUND
+*/
+$main-bg: #FFF3EA;
+
+/*
+COLORS
+*/
+$light-pink: #F7C8CC;
+$dark-pink: #FF9AA2;
+$light-orange: #FFDABC;
+$dark-orange: #FFB77D;
+
+/*
+SIZES
+*/
+$title_size: 4rem;
+$text-size: 1.25rem;
+$card-title-size: 2.5rem;
+$card-text-size: 1.125rem;
+
+/*
+FONTS
+*/
+$font-poppins: 'Poppins', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+$font-staatliches: 'Staatliches', 'Impact', 'Arial Black', sans-serif;
+
+
+.login-panel{
+  background-color: $main-bg;
+  font-family: $font-poppins;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  box-sizing: border-box;
+
+  &__container{
+    max-width: 1200px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 60px;
+    align-items: start;
+  }
+
+  &__header{
+    color: #000000;
+  }
+
+  &__title{
+    font-size: $title-size;
+    font-family: $font-staatliches;
+    text-transform: uppercase;
+    margin-top: 0;
+    margin-bottom: 15px;
+    letter-spacing: -1;
+  }
+
+  &__intro{
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+
+  &__description{
+    font-size: $text-size;
+    line-height: 1.6;
+    white-space: pre-line;
+  }
+
+  &__form{
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 40px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+  }
+
+  &__field{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  &__label{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 8px;
+  }
+
+  &__label-text{
+    font-size: 16px;
+    font-family: $font-staatliches;
+    color: #000000;
+    text-transform: uppercase;
+  }
+
+  &__info{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 16px;
+    height: 16px;
+    color: $dark-pink;
+    vertical-align: middle;
+    flex-shrink: 0;
+  }
+
+  &__info-icon{
+    width: 100%;
+    height: 100%;
+  }
+
+  &__input{
+    background-color: $light-pink;
+    border: none;
+    border-radius: 12px;
+    height: 55px;
+    padding: 0 16px;
+    font-size: 16px;
+    width: 100%;
+    box-sizing: border-box;
+    outline: none;
+  }
+
+  &__button, &__register-button{
+    font-family: $font-staatliches;
+    background-color: $dark-pink;
+    color: #000000;
+    border: none;
+    border-radius: 8px;
+    padding: 14px 28px;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+
+    display: inline-block;
+    width: max-content;
+    max-width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+    transition: background-color 0.2s;
+
+    &:hover{
+      background-color: #e88d8d;
+    }
+  }
+}
+
+.login-panel__alert--error {
+  grid-column: 1 / -1;
+  background-color: #ffdddd;
+  color: #de3333;
+  padding: 15px;
+  border-radius: 6px;
+  border-left: 4px solid #de3333;
+  margin-bottom: 15px;
+}
+
+.access-request {
+  background-color: $main-bg;
+  font-family: $font-poppins;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  box-sizing: border-box;
+
+  &__container {
+    max-width: 1200px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 60px;
+    align-items: start;
+  }
+
+  &__header {
+    color: #000000;
+  }
+
+  &__title {
+    font-size: $title_size;
+    font-family: $font-staatliches;
+    text-transform: uppercase;
+    margin-top: 0;
+    margin-bottom: 15px;
+  }
+
+  &__intro {
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+
+  &__description {
+    font-size: $text-size;
+    line-height: 1.6;
+    white-space: pre-line;
+  }
+
+  &__form {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 40px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+  }
+
+  &__field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  &__label {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 8px;
+  }
+
+  &__label-text {
+    font-size: 16px;
+    font-weight: 500;
+    text-transform: uppercase;
+    font-family: $font-staatliches;
+  }
+
+  &__info {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 16px;
+    height: 16px;
+    color: $dark-pink;
+    vertical-align: middle;
+    flex-shrink: 0;
+  }
+
+  &__info-icon {
+    width: 100%;
+    height: 100%;
+  }
+
+  &__input {
+    background-color: $light-pink;
+    border: none;
+    border-radius: 10px;
+    height: 55px;
+    padding: 0 16px;
+    font-size: 16px;
+    width: 100%;
+    box-sizing: border-box;
+    outline: none;
+
+    &--textarea {
+      height: auto;
+      padding: 16px;
+    }
+  }
+
+  &__button {
+    background-color: $dark-pink;
+    border: none;
+    border-radius: 10px;
+    padding: 14px 28px;
+    font-size: 15px;
+    font-family: $font-staatliches;
+    font-weight: 500;
+    text-transform: uppercase;
+    cursor: pointer;
+
+    display: inline-block;
+    width: max-content;
+    max-width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+    transition: background-color 0.2s;
+
+    &:hover {
+      background-color: darken($dark-pink, 8%)
+    }
+  }
+  &__alert {
+    padding: 15px;
+    border-radius: 6px;
+    margin-bottom: 15px;
+    font-size: 14px;
+
+    &--success {
+      background-color: #e6f4ea;
+      color: #137333;
+      border-left: 4px solid #137333;
+    }
+
+    &--error {
+      background-color: #ffdddd;
+      color: #de3333;
+      border-left: 4px solid #de3333;
+    }
+  }
+}

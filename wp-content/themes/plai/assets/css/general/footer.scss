@@ -1,0 +1,179 @@
+/*
+BACKGROUND
+*/
+$main-bg: #FFF3EA;
+
+/*
+COLORS
+*/
+$light-pink: #F7C8CC;
+$dark-pink: #FF9AA2;
+$light-orange: #FFDABC;
+$dark-orange: #FFB77D;
+
+/*
+SIZES
+*/
+$title-size: 4rem;
+$text-size: 1.25rem;
+$card-title-size: 2rem;
+$card-text-size: 1.7rem;
+
+/*
+FONTS
+*/
+$font-poppins: 'Poppins', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+$font-staatliches: 'Staatliches', 'Impact', 'Arial Black', sans-serif;
+
+.footer{
+  background: $light-orange;
+  color:#000000;
+  padding: 60px 0 20px 0;
+  margin-top: 80px;
+  font-family: $font-poppins;
+  width: 100%;
+
+  &__container{
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  &__top{
+    display: grid;
+    grid-template-columns: 1fr 1.3fr 0.7fr;
+    gap: 40px;
+    align-items: start;
+    padding-bottom: 40px;
+    border-bottom: 2px solid $main-bg;
+  }
+
+  &__brand{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    .footer__logo{
+      display: inline-block;
+      img {
+        height: 35px;
+        width: auto;
+      }
+    }
+
+    .footer__description{
+      font-size: 0.95rem;
+      line-height: 1.6;
+      font-weight: 500;
+    }
+  }
+
+  &__info-contact{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    background-color: #fdf6ee;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rbga(0, 0, 0, 0.02);
+
+    .footer__info-title{
+      font-size: 1.1rem;
+      font-family: $font-staatliches;
+      margin: 0;
+    }
+
+    .footer__info-text{
+      font-size: 0.95;
+      line-height: 1.5;
+      margin: 0;
+
+      strong{
+        font-weight: 800;
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .navigation-footer{
+    &__list{
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    &__link{
+      color: #000000;
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 900;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+
+      &:hover{
+        opacity: 0.8;
+      }
+    }
+  }
+
+  &__bottom{
+    padding-top: 25px;
+    text-align: center;
+
+    .footer__copyright {
+      font-size: 0.9rem;
+      margin: 0;
+      font-weight: 500;
+
+      strong {
+        font-weight: 900;
+      }
+    }
+  }
+}
+
+/*RESPONSIVE*/
+
+@media (max-width: 768px) {
+
+  .footer {
+    padding: 40px 0 20px 0;
+    margin-top: 40px;
+
+    &__top {
+      grid-template-columns: 1fr;
+      gap: 25px;
+      padding-bottom: 25px;
+    }
+
+    &__brand {
+      gap: 10px;
+    }
+
+    &__info-contact {
+      padding: 20px;
+    }
+
+    .navigation-footer {
+      &__list {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 8px 20px;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+
+  .footer {
+    .navigation-footer {
+      &__list {
+        flex-direction: column;
+        gap: 10px;
+      }
+    }
+  }
+}

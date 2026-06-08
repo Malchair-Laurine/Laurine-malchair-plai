@@ -1,0 +1,305 @@
+/*
+BACKGROUND
+*/
+$main-bg: #FFF3EA;
+
+/*
+COLORS
+*/
+$light-pink: #F7C8CC;
+$dark-pink: #FF9AA2;
+$light-orange: #FFDABC;
+$dark-orange: #FFB77D;
+
+/*
+SIZES
+*/
+$title-size: 4rem;
+$text-size: 1.25rem;
+$card-title-size: 2rem;
+$card-text-size: 1.7rem;
+
+/*
+FONTS
+*/
+$font-poppins: 'Poppins', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+$font-staatliches: 'Staatliches', 'Impact', 'Arial Black', sans-serif;
+
+
+
+.sensibilisations-container{
+  background-color: $main-bg;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 60px 20px;
+  font-family: $font-poppins;
+}
+
+.sensibilisations-header{
+  text-align: center;
+  margin-bottom: 60px;
+
+  &__title{
+    font-family: $font-staatliches;
+    font-size: $title-size;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+  }
+
+  &__description{
+    font-size: $text-size;
+    font-weight: 500;
+  }
+}
+
+.sensibilisations-grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 60px 25px;
+  align-items: stretch;
+
+  @media (min-width: 992px) {
+    grid-template-columns: repeat(3, 1fr);}
+}
+
+.sensibilisations-card {
+  background-color: $light-pink;
+  border-radius: 14px;
+  padding: 30px 24px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  text-decoration: none;
+  color: #000000;
+  transition: transform .25s ease, box-shadow .25s ease;
+
+  height: 390px;
+  box-sizing: border-box;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, .08);
+  }
+
+  &__title {
+    font-family: $font-staatliches;
+    font-size: $card-title-size;
+    text-transform: uppercase;
+    line-height: 1.1;
+    width: 100%;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #EFA4A9;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    box-sizing: border-box;
+  }
+
+  &__description {
+    font-size: $card-text-size;
+    line-height: 1.6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+    max-height: calc(100% - 100px);
+    overflow: hidden;
+  }
+}
+
+/*
+UNE SENSIBILISATION
+*/
+
+.sensibilisation{
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 80px 20px 100px;
+  background-color: $main-bg;
+
+  &__header{
+    text-align: center;
+    margin-bottom: 140px;
+  }
+
+  &__title{
+    font-family: $font-staatliches;
+    font-size: $title_size;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+  }
+
+  &__description{
+    max-width: 650px;
+    margin: 0 auto;
+    font-size: 1.15rem;
+    line-height: 1.8 !important;
+  }
+}
+
+.reflexion-section{
+  max-width: 900px;
+  margin: 0 auto 140px;
+
+  &__title{
+    font-family: $font-staatliches;
+    font-size: $title-size;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+  }
+
+  &__content{
+    max-width: 700px;
+    font-size: $text-size;
+
+    ul{
+      list-style-type: disc;
+      list-style-position: outside;
+      padding-left: 25px;
+    }
+
+    li{
+      margin-bottom: 20px;
+      line-height: 1.7;
+    }
+  }
+}
+
+.outil-section{
+  text-align: center;
+
+  &__title{
+    font-family: $font-staatliches;
+    font-size: $title-size;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  &__list{
+    max-width: 800px;
+    margin: 0 auto;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+  }
+
+  &__item{
+    background-color: $light-orange;
+    padding: 20px 40px;
+    margin: 0;
+    text-align: left;
+    font-size: 1.1rem;
+    border-bottom: 1px solid $dark-orange;
+
+    &:last-child{
+      border-bottom: none;
+    }
+  }
+}
+
+/*RESPONSIVE*/
+
+@media (max-width: 768px) {
+
+  /* ---- Liste sensibilisations ---- */
+  .sensibilisations-container {
+    padding: 40px 15px;
+    margin-top: 50px;
+  }
+
+  .sensibilisations-header {
+    margin-bottom: 40px;
+
+    &__title {
+      font-size: clamp(2rem, 8vw, 3rem);
+    }
+
+    &__description {
+      font-size: 1.1rem;
+    }
+  }
+
+  .sensibilisations-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .sensibilisations-card {
+    height: auto; // retire la hauteur fixe
+    min-height: 200px;
+
+    &__title {
+      height: auto;
+      font-size: 1.8rem;
+      padding-bottom: 15px;
+    }
+
+    &__description {
+      font-size: 1.2rem;
+      margin-top: 20px;
+      max-height: none;
+    }
+  }
+
+  /* ---- Une sensibilisation ---- */
+  .sensibilisation {
+    margin-top: 50px;
+    padding: 40px 15px 60px;
+
+    &__header {
+      margin-bottom: 60px;
+    }
+
+    &__title {
+      font-size: clamp(2rem, 8vw, 3rem);
+      margin-bottom: 25px;
+    }
+
+    &__description {
+      font-size: 1.05rem;
+    }
+  }
+
+  .reflexion-section {
+    margin-bottom: 60px;
+
+    &__title {
+      font-size: clamp(2rem, 8vw, 3rem);
+      margin-bottom: 25px;
+    }
+
+    &__content {
+      font-size: 1.05rem;
+    }
+  }
+
+  .outil-section {
+    &__title {
+      font-size: clamp(2rem, 8vw, 3rem);
+      margin-bottom: 25px;
+    }
+
+    &__item {
+      padding: 15px 20px;
+      font-size: 1rem;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+
+  .sensibilisations-card {
+    &__title       { font-size: 1.6rem; }
+    &__description { font-size: 1.1rem; }
+  }
+
+  .sensibilisation__title,
+  .reflexion-section__title,
+  .outil-section__title { font-size: 2rem; }
+}
