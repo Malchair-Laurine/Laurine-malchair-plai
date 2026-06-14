@@ -5,6 +5,9 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="author" content="Laurine Malchair">
+    <meta name="description" content="Site du plai, un site institutionnel qui permet d'aider les professeur">
+    <meta name="keywords" content="plai, pôle teritorial, liège">
     <title><?= get_the_title() ?> - PLAI</title>
     <link rel="stylesheet" type="text/css" href="<?= dw_asset('css'); ?>">
     <script src="<?= dw_asset('js') ?>" defer></script>
