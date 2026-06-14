@@ -55,7 +55,7 @@ $font-staatliches: 'Staatliches', 'Impact', 'Arial Black', sans-serif;
 
 .ressources-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
   gap: 32px;
 }
 
@@ -74,6 +74,8 @@ $font-staatliches: 'Staatliches', 'Impact', 'Arial Black', sans-serif;
   gap: 28px;
   padding: 36px 28px;
   justify-content: space-between;
+  max-width: 450px;
+  margin: 0 auto;
 
 
   &:hover {
