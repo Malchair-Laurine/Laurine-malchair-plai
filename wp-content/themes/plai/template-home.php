@@ -14,27 +14,30 @@ $mission_cards = [];
 
 // 3. Récupération des données selon le mode (Normal ou FALC)
 if ($is_falc) {
-    $main_title         = get_field('main_title_falc');
-    $span               = get_field('span_falc');
-    $main_description   = get_field('main_description_falc');
-    $description_cards  = get_field('description_cards_falc') ?: [];
+    $main_title = get_field('main_title_falc');
+    $span = get_field('span_falc');
+    $main_description = get_field('main_description_falc');
+    $description_cards = get_field('description_cards_falc') ?: [];
 
-    $mission_title      = get_field('mission_title_falc');
-    $mission_text       = get_field('mission_text_falc');
-    $mission_cards      = get_field('mission_cards_falc') ?: [];}
-else {
-    $main_title         = get_field('main_title');
-    $span               = get_field('span');
-    $main_description   = get_field('main_description');
-    $description_cards  = get_field('description_cards') ?: [];
+    $mission_title = get_field('mission_title_falc');
+    $mission_text = get_field('mission_text_falc');
+    $mission_cards = get_field('mission_cards_falc');
+    $cta_title = get_field('cta_title_flac');
+    $cta_link = get_field('cta_link_falc') ?: [];
+} else {
+    $main_title = get_field('main_title');
+    $span = get_field('span');
+    $main_description = get_field('main_description');
+    $description_cards = get_field('description_cards') ?: [];
 
-    $mission_title      = get_field('mission_title');
-    $mission_subtitle   = get_field('mission_subtitle');
-    $mission_text       = get_field('mission_text');
-    $mission_cards      = get_field('mission_cards') ?: [];
+    $mission_title = get_field('mission_title');
+    $mission_subtitle = get_field('mission_subtitle');
+    $mission_text = get_field('mission_text');
+    $mission_cards = get_field('mission_cards');
+    $cta_title = get_field('cta_title');
+    $cta_link = get_field('cta_link') ?: [];
 }
 
-// On adapte une classe CSS sur le body/wrapper pour le style FALC si besoin
 $body_class = $is_falc ? 'home-falc' : 'home-normal';
 ?>
 
@@ -42,11 +45,13 @@ $body_class = $is_falc ? 'home-falc' : 'home-normal';
 
         <header class="home-header">
             <?php if (!empty($main_title)) : ?>
-                <h1 class="home-header__title" itemprop="name"><?= esc_html($main_title) ?> <span><?= esc_html($span) ?></span></h1>
+                <h1 class="home-header__title" itemprop="name"><?= esc_html($main_title) ?>
+                    <span><?= esc_html($span) ?></span></h1>
             <?php endif; ?>
 
             <?php if (!empty($main_description)): ?>
-                <div class="home-header__description" itemprop="description"><?= wp_kses_post($main_description) ?></div>
+                <div class="home-header__description"
+                     itemprop="description"><?= wp_kses_post($main_description) ?></div>
             <?php endif; ?>
 
             <?php if (!empty($description_cards)) : ?>
@@ -55,7 +60,8 @@ $body_class = $is_falc ? 'home-falc' : 'home-normal';
                         // On gère dynamiquement la clé ACF qui change entre FALC et normal
                         $card_text = $is_falc ? ($card['card_text_falc'] ?? '') : ($card['card_text'] ?? '');
                         ?>
-                        <div class="home-header__card" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                        <div class="home-header__card" itemprop="itemListElement" itemscope
+                             itemtype="https://schema.org/ListItem">
                             <meta itemprop="position" content="<?= $index + 1 ?>">
                             <p class="home-header__card-text" itemprop="name"><?= esc_html($card_text) ?></p>
                         </div>
@@ -85,11 +91,12 @@ $body_class = $is_falc ? 'home-falc' : 'home-normal';
                 <div class="missions__grid">
                     <?php foreach ($mission_cards as $index => $card) :
                         // Gestion dynamique des clés ACF pour les cartes missions
-                        $img   = $is_falc ? ($card['mission_icon_falc'] ?? null) : ($card['mission_icon'] ?? null);
+                        $img = $is_falc ? ($card['mission_icon_falc'] ?? null) : ($card['mission_icon'] ?? null);
                         $title = $is_falc ? ($card['mission_card_title_falc'] ?? '') : ($card['mission_card_title'] ?? '');
-                        $text  = $is_falc ? ($card['mission_card_text_falc'] ?? '') : ($card['mission_card_text'] ?? '');
+                        $text = $is_falc ? ($card['mission_card_text_falc'] ?? '') : ($card['mission_card_text'] ?? '');
                         ?>
-                        <div class="missions__card" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                        <div class="missions__card" itemprop="itemListElement" itemscope
+                             itemtype="https://schema.org/ListItem">
                             <meta itemprop="position" content="<?= $index + 1 ?>">
                             <?php if (!empty($img)) : ?>
                                 <img src="<?= esc_url($img['url']) ?>"
@@ -105,10 +112,20 @@ $body_class = $is_falc ? 'home-falc' : 'home-normal';
                             <?php endif; ?>
 
                             <?php if (!empty($text)) : ?>
-                                <div class="missions__card__text" itemprop="description"><?= wp_kses_post($text) ?></div>
+                                <div class="missions__card__text"
+                                     itemprop="description"><?= wp_kses_post($text) ?></div>
                             <?php endif; ?>
                         </div>
                     <?php endforeach; ?>
+                </div>
+
+                <div class="cta-section">
+                    <?php if (!empty ($cta_title)) : ?>
+                        <h2 class="cta-section__title"> <?= $cta_title ?> </h2>
+                    <?php endif; ?>
+                    <?php if (!empty ($cta_link)) : ?>
+                        <a href="<?= $cta_link ['url'] ?>" class="cta-section__button"> <?= $cta_link['title'] ?>  </a>
+                    <?php endif; ?>
                 </div>
             <?php endif; ?>
         </section>
