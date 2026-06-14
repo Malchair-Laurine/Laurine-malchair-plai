@@ -64,6 +64,10 @@ $font-staatliches: 'Staatliches', 'Impact', 'Arial Black', sans-serif;
     }
   }
 
+  &__burger{
+    display: none;
+  }
+
   &__list-item:last-child &__link {
     background-color: #f3919b;
     color: #000000;

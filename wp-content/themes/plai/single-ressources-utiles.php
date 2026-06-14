@@ -15,59 +15,62 @@
 
     $all_ressource_link = get_field('all_ressource_link');
     ?>
-    <main class="ressource">
+    <main class="ressource" itemscope itemtype="https://schema.org/CreativeWork">
 
         <header class="ressource__header">
-            <h1 class="ressource__title"> <?= $ressource_title ?> </h1>
+            <h1 class="ressource__title" itemprop="name"> <?= $ressource_title ?> </h1>
 
             <?php if ($ressource_slogan) : ?>
-                <p class="ressource__slogan"> <?= $ressource_slogan ?> </p>
+                <p class="ressource__slogan" itemprop="alternativeHeadline"> <?= $ressource_slogan ?> </p>
             <?php endif; ?>
 
             <?php if ($ressource_description) : ?>
-                <p class="ressource__description"> <?= $ressource_description ?> </p>
+                <p class="ressource__description" itemprop="description"> <?= $ressource_description ?> </p>
             <?php endif; ?>
 
             <?php if (!empty($ressource_links) && is_array($ressource_links)) : ?>
                 <?php foreach ($ressource_links as $link) : ?>
                     <?php if (!empty($link['ressource_link']['url'])) : ?>
-                        <a class="btn-primary" href="<?= esc_url($link['ressource_link']['url']) ?>"><?= esc_html($link['ressource_link']['title'] ?? 'Lien vers...') ?></a>
+                        <a class="btn-primary" itemprop="sameAs" href="<?= esc_url($link['ressource_link']['url']) ?>"><?= esc_html($link['ressource_link']['title'] ?? 'Lien vers...') ?></a>
                     <?php endif; ?>
                 <?php endforeach; ?>
             <?php endif; ?>
 
         </header>
 
-        <section class="functionality-section">
+        <section class="functionality-section" itemprop="hasPart" itemscope itemtype="https://schema.org/ItemList">
 
             <?php if ($ressource_functionality_title) : ?>
-                <h2 class="functionality-section__title"> <?= $ressource_functionality_title ?> </h2>
+                <h2 class="functionality-section__title" itemprop="name"> <?= $ressource_functionality_title ?> </h2>
             <?php endif; ?>
 
             <ul class="functionality-section__list">
-                <?php foreach ($ressource_functionalities as $functionality) : ?>
+                <?php foreach ($ressource_functionalities as $index => $functionality) : ?>
                     <?php if (!empty($functionality['ressource_functionality'])) : ?>
-                        <li><?= esc_html($functionality['ressource_functionality']) ?></li>
+                        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                            <meta itemprop="position" content="<?= $index + 1 ?>">
+                            <span itemprop="name"><?= esc_html($functionality['ressource_functionality']) ?></span>
+                        </li>
                     <?php endif; ?>
                 <?php endforeach; ?>
             </ul>
 
         </section>
 
-        <section class="pedagogical-section">
+        <section class="pedagogical-section" itemprop="hasPart" itemscope itemtype="https://schema.org/CreativeWork">
 
             <?php if ($ressource_pedagogical) : ?>
-                <h2 class="pedagogical-section__title"> <?= $ressource_pedagogical ?></h2>
+                <h2 class="pedagogical-section__title" itemprop="name"> <?= $ressource_pedagogical ?></h2>
             <?php endif; ?>
 
             <?php if ($ressource_pedagogical_text) : ?>
-                <p class="pedagogical-section__text"><?= $ressource_pedagogical_text ?> </p>
+                <p class="pedagogical-section__text" itemprop="description"><?= $ressource_pedagogical_text ?> </p>
             <?php endif; ?>
         </section>
 
 
         <div class="all-ressources">
-                <h2 class="all-ressources__title">Vous souhaitez avoir accès à d'autres ressources utiles ?</h2>
+            <h2 class="all-ressources__title">Vous souhaitez avoir accès à d'autres ressources utiles ?</h2>
 
             <?php if (!empty($all_ressource_link['url'])) : ?>
                 <a class="btn-primary"

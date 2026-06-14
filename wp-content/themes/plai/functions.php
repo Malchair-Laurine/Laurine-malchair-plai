@@ -1,5 +1,7 @@
 <?php
 include('core/theme/configuration.php');
+update_option( 'siteurl', 'http://laurine-malchair-plai.test' );
+update_option( 'home', 'http://laurine-malchair-plai.test' );
 
 // Déclaration des menus dans wordpress
 register_nav_menu('header', 'Le menu de navigation principal qui se trouve en haut de la page');
@@ -121,3 +123,4 @@ register_taxonomy('ressource-type', ['ressources-utiles'], [
 ]);
 
 add_theme_support('custom-logo');
+
